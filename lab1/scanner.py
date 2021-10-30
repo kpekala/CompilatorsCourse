@@ -1,13 +1,25 @@
 import ply.lex as lex
 
-literals = "+-*/()"
+literals = "+-*/(),;='"
 tokens = ('PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'LPAREN', 'RPAREN', 'NUMBER', 'ID',
-          'DOTADD', 'DOTTIMES', 'DOTMINUS', 'DOTDIVIDE')
+          'DOTADD', 'DOTTIMES', 'DOTMINUS', 'DOTDIVIDE',
+          'ASSIGNADD', 'ASSIGNMINUS', 'ASSIGNMUL', 'ASSIGNDIV'
+          )
 t_DOTADD = r'\.\+'
-t_DOTTIMES = r'.\*'
-t_DOTMINUS = r'.-'
-t_DOTDIVIDE = r'./'
+t_DOTTIMES = r'\.\*'
+t_DOTMINUS = r'\.-'
+t_DOTDIVIDE = r'\./'
+
+t_ASSIGNADD = r'\+='
+t_ASSIGNMINUS = r'\-='
+t_ASSIGNMUL = r'\*='
+t_ASSIGNDIV = r'/='
+
 t_ignore = ' \t'
+
+reserved = {
+
+}
 
 
 def t_NUMBER(t):
@@ -19,6 +31,11 @@ def t_NUMBER(t):
 def t_ID(t):
     r'[a-zA-Z_]\w*'
     return t
+
+
+def t_COMMENT(t):
+    r'\#.*'
+    pass
 
 
 def t_newline(t):
