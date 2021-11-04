@@ -1,10 +1,25 @@
 import ply.lex as lex
 
+reserved = {
+        "if": "IF",
+        "else": "ELSE",
+        "for": "FOR",
+        "while": "WHILE",
+        "break": "BREAK",
+        "continue": "CONTINUE",
+        "return": "RETURN",
+        "eye": "EYE",
+        "zeros": "ZEROS",
+        "ones": "ONES",
+        "print": "PRINT"
+}
+
+
 literals = "+-*/(),;='"
-tokens = ('PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'LPAREN', 'RPAREN', 'NUMBER', 'ID',
+tokens = ['PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'LPAREN', 'RPAREN', 'NUMBER', 'ID',
           'DOTADD', 'DOTTIMES', 'DOTMINUS', 'DOTDIVIDE',
           'ASSIGNADD', 'ASSIGNMINUS', 'ASSIGNMUL', 'ASSIGNDIV'
-          )
+          ] +  list(reserved.values())
 t_DOTADD = r'\.\+'
 t_DOTTIMES = r'\.\*'
 t_DOTMINUS = r'\.-'
@@ -17,9 +32,7 @@ t_ASSIGNDIV = r'/='
 
 t_ignore = ' \t'
 
-reserved = {
 
-}
 
 
 def t_NUMBER(t):
@@ -30,6 +43,7 @@ def t_NUMBER(t):
 
 def t_ID(t):
     r'[a-zA-Z_]\w*'
+    t.type = reserved.get(t.value, "ID")
     return t
 
 

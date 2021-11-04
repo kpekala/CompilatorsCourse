@@ -22,3 +22,5 @@ if __name__ == '__main__':
         if not tok:
             break    # No more input
         print("%d: %s(%s)" %(tok.lineno, tok.type, tok.value))
+
+
