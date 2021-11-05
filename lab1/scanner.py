@@ -1,25 +1,25 @@
 import ply.lex as lex
 
 reserved = {
-        "if": "IF",
-        "else": "ELSE",
-        "for": "FOR",
-        "while": "WHILE",
-        "break": "BREAK",
-        "continue": "CONTINUE",
-        "return": "RETURN",
-        "eye": "EYE",
-        "zeros": "ZEROS",
-        "ones": "ONES",
-        "print": "PRINT"
+    "if": "IF",
+    "else": "ELSE",
+    "for": "FOR",
+    "while": "WHILE",
+    "break": "BREAK",
+    "continue": "CONTINUE",
+    "return": "RETURN",
+    "eye": "EYE",
+    "zeros": "ZEROS",
+    "ones": "ONES",
+    "print": "PRINT"
 }
 
-
-literals = "+-*/(),;='"
-tokens = ['PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'LPAREN', 'RPAREN', 'NUMBER', 'ID',
+literals = "+-*/(),;='{}[]<>"
+tokens = ['LPAREN', 'RPAREN', 'NUMBER', 'ID',
           'DOTADD', 'DOTTIMES', 'DOTMINUS', 'DOTDIVIDE',
-          'ASSIGNADD', 'ASSIGNMINUS', 'ASSIGNMUL', 'ASSIGNDIV'
-          ] +  list(reserved.values())
+          'ASSIGNADD', 'ASSIGNMINUS', 'ASSIGNMUL', 'ASSIGNDIV',
+          'LE','GE','NEQ','EQ','STR','FLOATNUM'
+          ] + list(reserved.values())
 t_DOTADD = r'\.\+'
 t_DOTTIMES = r'\.\*'
 t_DOTMINUS = r'\.-'
@@ -30,11 +30,18 @@ t_ASSIGNMINUS = r'\-='
 t_ASSIGNMUL = r'\*='
 t_ASSIGNDIV = r'/='
 
+t_LE = r'<='
+t_GE = r'>='
+t_NEQ = r'!='
+t_EQ = r'=='
+t_STR = r"\".*?\""
+
 t_ignore = ' \t'
 
-
-
-
+def t_FLOATNUM(t):
+    r"[-+]?\d*\.\d+|\d+"
+    t.value = float(t.value)
+    return t
 def t_NUMBER(t):
     r'\d+'
     t.value = int(t.value)
