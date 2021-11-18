@@ -35,14 +35,13 @@ t_LE = r'<='
 t_GE = r'>='
 t_NEQ = r'!='
 t_EQ = r'=='
-
 t_STR = r"\".*?\""
 
 t_ignore = ' \t'
 
 
 def t_FLOATNUM(t):
-    r"\d*\.\d+|\d+\."
+    r"[-+]?\d*\.\d+|\d+"
     t.value = float(t.value)
     return t
 

@@ -1,8 +1,6 @@
 import sys
 import scanner
 
-
-
 if __name__ == '__main__':
 
     try:
