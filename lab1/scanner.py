@@ -14,11 +14,11 @@ reserved = {
     "print": "PRINT"
 }
 
-literals = "+-*/(),;='{}[]<>"
-tokens = ['LPAREN', 'RPAREN', 'NUMBER', 'ID',
+literals = "+-*/(),;='{}[]<>:"
+tokens = [ 'NUMBER', 'ID',
           'DOTADD', 'DOTTIMES', 'DOTMINUS', 'DOTDIVIDE',
           'ASSIGNADD', 'ASSIGNMINUS', 'ASSIGNMUL', 'ASSIGNDIV',
-          'LE', 'GE', 'NEQ', 'EQ', 'STR', 'FLOATNUM'
+          'LE', 'GE', 'NEQ', 'EQ', 'STR', 'FLOATNUM', 'UMINUS'
           ] + list(reserved.values())
 
 t_DOTADD = r'\.\+'

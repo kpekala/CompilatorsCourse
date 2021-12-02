@@ -6,12 +6,13 @@ import ply.yacc as yacc
 tokens = scanner.tokens
 
 precedence = (
-    ("nonassoc", "IFX"),
+    ("nonassoc","IFX"),
     ("nonassoc", "ELSE"),
     ("left", '+', '-'),
     ("left", '*', '/'),
     ("left", "DOTADD", "DOTMINUS"),
     ("left", "DOTTIMES", "DOTDIVIDE"),
+    ("right","UMINUS")
 )
 
 
@@ -40,7 +41,7 @@ def p_in_empty(p):
 
 
 def p_ins_group(p):
-    """ins : '{' ins '}'"""
+    """in : '{' ins '}'"""
 
 
 def p_assign(p):
@@ -60,6 +61,9 @@ def p_expr_binop(p):
             | expr DOTMINUS expr
             | expr DOTTIMES expr
             | expr DOTDIVIDE expr"""
+
+def p_u_minus(p):
+    """expr : '-' expr %prec UMINUS"""
 
 
 def p_expr_lit(p):
@@ -121,7 +125,7 @@ def p_funcall(p):
 
 
 def p_while(p):
-    """om : WHILE '(' cond ')' in"""
+    """in : WHILE '(' cond ')' in"""
 
 
 def p_for(p):
