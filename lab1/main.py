@@ -1,6 +1,7 @@
 import sys
 import scanner
 import Mparser
+from TypeChecker import TypeChecker
 
 if __name__ == '__main__':
 
@@ -13,4 +14,7 @@ if __name__ == '__main__':
 
     parser = Mparser.parser
     text = file.read()
-    parser.parse(text, lexer=scanner.lexer)
+    ast = parser.parse(text, lexer=scanner.lexer)
+
+    typeChecker = TypeChecker()
+    typeChecker.visit(ast)
