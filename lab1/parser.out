@@ -1836,6 +1836,7 @@ state 65
     DOTMINUS        reduce using rule 20 (expr -> - expr .)
     DOTTIMES        reduce using rule 20 (expr -> - expr .)
     DOTDIVIDE       reduce using rule 20 (expr -> - expr .)
+    '               reduce using rule 20 (expr -> - expr .)
     ,               reduce using rule 20 (expr -> - expr .)
     ]               reduce using rule 20 (expr -> - expr .)
     <               reduce using rule 20 (expr -> - expr .)
@@ -1858,9 +1859,7 @@ state 65
     }               reduce using rule 20 (expr -> - expr .)
     ELSE            reduce using rule 20 (expr -> - expr .)
     :               reduce using rule 20 (expr -> - expr .)
-    '               shift and go to state 64
 
-  ! '               [ reduce using rule 20 (expr -> - expr .) ]
   ! +               [ shift and go to state 56 ]
   ! -               [ shift and go to state 57 ]
   ! *               [ shift and go to state 58 ]
@@ -1869,6 +1868,7 @@ state 65
   ! DOTMINUS        [ shift and go to state 61 ]
   ! DOTTIMES        [ shift and go to state 62 ]
   ! DOTDIVIDE       [ shift and go to state 63 ]
+  ! '               [ shift and go to state 64 ]
 
 
 state 66
@@ -2485,6 +2485,7 @@ state 88
     ;               reduce using rule 12 (expr -> expr + expr .)
     +               reduce using rule 12 (expr -> expr + expr .)
     -               reduce using rule 12 (expr -> expr + expr .)
+    '               reduce using rule 12 (expr -> expr + expr .)
     ,               reduce using rule 12 (expr -> expr + expr .)
     ]               reduce using rule 12 (expr -> expr + expr .)
     <               reduce using rule 12 (expr -> expr + expr .)
@@ -2513,7 +2514,6 @@ state 88
     DOTMINUS        shift and go to state 61
     DOTTIMES        shift and go to state 62
     DOTDIVIDE       shift and go to state 63
-    '               shift and go to state 64
 
   ! *               [ reduce using rule 12 (expr -> expr + expr .) ]
   ! /               [ reduce using rule 12 (expr -> expr + expr .) ]
@@ -2521,9 +2521,9 @@ state 88
   ! DOTMINUS        [ reduce using rule 12 (expr -> expr + expr .) ]
   ! DOTTIMES        [ reduce using rule 12 (expr -> expr + expr .) ]
   ! DOTDIVIDE       [ reduce using rule 12 (expr -> expr + expr .) ]
-  ! '               [ reduce using rule 12 (expr -> expr + expr .) ]
   ! +               [ shift and go to state 56 ]
   ! -               [ shift and go to state 57 ]
+  ! '               [ shift and go to state 64 ]
 
 
 state 89
@@ -2542,6 +2542,7 @@ state 89
     ;               reduce using rule 13 (expr -> expr - expr .)
     +               reduce using rule 13 (expr -> expr - expr .)
     -               reduce using rule 13 (expr -> expr - expr .)
+    '               reduce using rule 13 (expr -> expr - expr .)
     ,               reduce using rule 13 (expr -> expr - expr .)
     ]               reduce using rule 13 (expr -> expr - expr .)
     <               reduce using rule 13 (expr -> expr - expr .)
@@ -2570,7 +2571,6 @@ state 89
     DOTMINUS        shift and go to state 61
     DOTTIMES        shift and go to state 62
     DOTDIVIDE       shift and go to state 63
-    '               shift and go to state 64
 
   ! *               [ reduce using rule 13 (expr -> expr - expr .) ]
   ! /               [ reduce using rule 13 (expr -> expr - expr .) ]
@@ -2578,9 +2578,9 @@ state 89
   ! DOTMINUS        [ reduce using rule 13 (expr -> expr - expr .) ]
   ! DOTTIMES        [ reduce using rule 13 (expr -> expr - expr .) ]
   ! DOTDIVIDE       [ reduce using rule 13 (expr -> expr - expr .) ]
-  ! '               [ reduce using rule 13 (expr -> expr - expr .) ]
   ! +               [ shift and go to state 56 ]
   ! -               [ shift and go to state 57 ]
+  ! '               [ shift and go to state 64 ]
 
 
 state 90
@@ -2601,6 +2601,7 @@ state 90
     -               reduce using rule 14 (expr -> expr * expr .)
     *               reduce using rule 14 (expr -> expr * expr .)
     /               reduce using rule 14 (expr -> expr * expr .)
+    '               reduce using rule 14 (expr -> expr * expr .)
     ,               reduce using rule 14 (expr -> expr * expr .)
     ]               reduce using rule 14 (expr -> expr * expr .)
     <               reduce using rule 14 (expr -> expr * expr .)
@@ -2627,17 +2628,16 @@ state 90
     DOTMINUS        shift and go to state 61
     DOTTIMES        shift and go to state 62
     DOTDIVIDE       shift and go to state 63
-    '               shift and go to state 64
 
   ! DOTADD          [ reduce using rule 14 (expr -> expr * expr .) ]
   ! DOTMINUS        [ reduce using rule 14 (expr -> expr * expr .) ]
   ! DOTTIMES        [ reduce using rule 14 (expr -> expr * expr .) ]
   ! DOTDIVIDE       [ reduce using rule 14 (expr -> expr * expr .) ]
-  ! '               [ reduce using rule 14 (expr -> expr * expr .) ]
   ! +               [ shift and go to state 56 ]
   ! -               [ shift and go to state 57 ]
   ! *               [ shift and go to state 58 ]
   ! /               [ shift and go to state 59 ]
+  ! '               [ shift and go to state 64 ]
 
 
 state 91
@@ -2658,6 +2658,7 @@ state 91
     -               reduce using rule 15 (expr -> expr / expr .)
     *               reduce using rule 15 (expr -> expr / expr .)
     /               reduce using rule 15 (expr -> expr / expr .)
+    '               reduce using rule 15 (expr -> expr / expr .)
     ,               reduce using rule 15 (expr -> expr / expr .)
     ]               reduce using rule 15 (expr -> expr / expr .)
     <               reduce using rule 15 (expr -> expr / expr .)
@@ -2684,17 +2685,16 @@ state 91
     DOTMINUS        shift and go to state 61
     DOTTIMES        shift and go to state 62
     DOTDIVIDE       shift and go to state 63
-    '               shift and go to state 64
 
   ! DOTADD          [ reduce using rule 15 (expr -> expr / expr .) ]
   ! DOTMINUS        [ reduce using rule 15 (expr -> expr / expr .) ]
   ! DOTTIMES        [ reduce using rule 15 (expr -> expr / expr .) ]
   ! DOTDIVIDE       [ reduce using rule 15 (expr -> expr / expr .) ]
-  ! '               [ reduce using rule 15 (expr -> expr / expr .) ]
   ! +               [ shift and go to state 56 ]
   ! -               [ shift and go to state 57 ]
   ! *               [ shift and go to state 58 ]
   ! /               [ shift and go to state 59 ]
+  ! '               [ shift and go to state 64 ]
 
 
 state 92
@@ -2717,6 +2717,7 @@ state 92
     /               reduce using rule 16 (expr -> expr DOTADD expr .)
     DOTADD          reduce using rule 16 (expr -> expr DOTADD expr .)
     DOTMINUS        reduce using rule 16 (expr -> expr DOTADD expr .)
+    '               reduce using rule 16 (expr -> expr DOTADD expr .)
     ,               reduce using rule 16 (expr -> expr DOTADD expr .)
     ]               reduce using rule 16 (expr -> expr DOTADD expr .)
     <               reduce using rule 16 (expr -> expr DOTADD expr .)
@@ -2741,17 +2742,16 @@ state 92
     :               reduce using rule 16 (expr -> expr DOTADD expr .)
     DOTTIMES        shift and go to state 62
     DOTDIVIDE       shift and go to state 63
-    '               shift and go to state 64
 
   ! DOTTIMES        [ reduce using rule 16 (expr -> expr DOTADD expr .) ]
   ! DOTDIVIDE       [ reduce using rule 16 (expr -> expr DOTADD expr .) ]
-  ! '               [ reduce using rule 16 (expr -> expr DOTADD expr .) ]
   ! +               [ shift and go to state 56 ]
   ! -               [ shift and go to state 57 ]
   ! *               [ shift and go to state 58 ]
   ! /               [ shift and go to state 59 ]
   ! DOTADD          [ shift and go to state 60 ]
   ! DOTMINUS        [ shift and go to state 61 ]
+  ! '               [ shift and go to state 64 ]
 
 
 state 93
@@ -2774,6 +2774,7 @@ state 93
     /               reduce using rule 17 (expr -> expr DOTMINUS expr .)
     DOTADD          reduce using rule 17 (expr -> expr DOTMINUS expr .)
     DOTMINUS        reduce using rule 17 (expr -> expr DOTMINUS expr .)
+    '               reduce using rule 17 (expr -> expr DOTMINUS expr .)
     ,               reduce using rule 17 (expr -> expr DOTMINUS expr .)
     ]               reduce using rule 17 (expr -> expr DOTMINUS expr .)
     <               reduce using rule 17 (expr -> expr DOTMINUS expr .)
@@ -2798,17 +2799,16 @@ state 93
     :               reduce using rule 17 (expr -> expr DOTMINUS expr .)
     DOTTIMES        shift and go to state 62
     DOTDIVIDE       shift and go to state 63
-    '               shift and go to state 64
 
   ! DOTTIMES        [ reduce using rule 17 (expr -> expr DOTMINUS expr .) ]
   ! DOTDIVIDE       [ reduce using rule 17 (expr -> expr DOTMINUS expr .) ]
-  ! '               [ reduce using rule 17 (expr -> expr DOTMINUS expr .) ]
   ! +               [ shift and go to state 56 ]
   ! -               [ shift and go to state 57 ]
   ! *               [ shift and go to state 58 ]
   ! /               [ shift and go to state 59 ]
   ! DOTADD          [ shift and go to state 60 ]
   ! DOTMINUS        [ shift and go to state 61 ]
+  ! '               [ shift and go to state 64 ]
 
 
 state 94
@@ -2833,6 +2833,7 @@ state 94
     DOTMINUS        reduce using rule 18 (expr -> expr DOTTIMES expr .)
     DOTTIMES        reduce using rule 18 (expr -> expr DOTTIMES expr .)
     DOTDIVIDE       reduce using rule 18 (expr -> expr DOTTIMES expr .)
+    '               reduce using rule 18 (expr -> expr DOTTIMES expr .)
     ,               reduce using rule 18 (expr -> expr DOTTIMES expr .)
     ]               reduce using rule 18 (expr -> expr DOTTIMES expr .)
     <               reduce using rule 18 (expr -> expr DOTTIMES expr .)
@@ -2855,9 +2856,7 @@ state 94
     }               reduce using rule 18 (expr -> expr DOTTIMES expr .)
     ELSE            reduce using rule 18 (expr -> expr DOTTIMES expr .)
     :               reduce using rule 18 (expr -> expr DOTTIMES expr .)
-    '               shift and go to state 64
 
-  ! '               [ reduce using rule 18 (expr -> expr DOTTIMES expr .) ]
   ! +               [ shift and go to state 56 ]
   ! -               [ shift and go to state 57 ]
   ! *               [ shift and go to state 58 ]
@@ -2866,6 +2865,7 @@ state 94
   ! DOTMINUS        [ shift and go to state 61 ]
   ! DOTTIMES        [ shift and go to state 62 ]
   ! DOTDIVIDE       [ shift and go to state 63 ]
+  ! '               [ shift and go to state 64 ]
 
 
 state 95
@@ -2890,6 +2890,7 @@ state 95
     DOTMINUS        reduce using rule 19 (expr -> expr DOTDIVIDE expr .)
     DOTTIMES        reduce using rule 19 (expr -> expr DOTDIVIDE expr .)
     DOTDIVIDE       reduce using rule 19 (expr -> expr DOTDIVIDE expr .)
+    '               reduce using rule 19 (expr -> expr DOTDIVIDE expr .)
     ,               reduce using rule 19 (expr -> expr DOTDIVIDE expr .)
     ]               reduce using rule 19 (expr -> expr DOTDIVIDE expr .)
     <               reduce using rule 19 (expr -> expr DOTDIVIDE expr .)
@@ -2912,9 +2913,7 @@ state 95
     }               reduce using rule 19 (expr -> expr DOTDIVIDE expr .)
     ELSE            reduce using rule 19 (expr -> expr DOTDIVIDE expr .)
     :               reduce using rule 19 (expr -> expr DOTDIVIDE expr .)
-    '               shift and go to state 64
 
-  ! '               [ reduce using rule 19 (expr -> expr DOTDIVIDE expr .) ]
   ! +               [ shift and go to state 56 ]
   ! -               [ shift and go to state 57 ]
   ! *               [ shift and go to state 58 ]
@@ -2923,6 +2922,7 @@ state 95
   ! DOTMINUS        [ shift and go to state 61 ]
   ! DOTTIMES        [ shift and go to state 62 ]
   ! DOTDIVIDE       [ shift and go to state 63 ]
+  ! '               [ shift and go to state 64 ]
 
 
 state 96
